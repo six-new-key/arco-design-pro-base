@@ -1,28 +1,19 @@
 <template>
-  <a-space>
-    <a-button type="primary">Primary</a-button>
-    <a-button>Secondary</a-button>
-    <a-button type="dashed">Dashed</a-button>
-    <a-button type="outline">Outline</a-button>
-    <a-button type="text">Text</a-button>
-    <a-button @click="handleNotification">
-      Open Notification
-    </a-button>
-    <a-button @click="handleClick">Info Message</a-button>
-  </a-space>
+  <router-view />
 </template>
 
 <script setup>
-import { Message, Notification } from './utils'
+import { onMounted } from 'vue'
+import { useAppStore } from '@/stores/modules/app'
 
-const handleNotification = () => {
-  Notification.info({
-    title: 'Notification',
-    content: 'This is a notification!',
-  })
-}
+const appStore = useAppStore()
 
-const handleClick = () => {
-  Message.error('This is a message!')
-}
+// 在组件挂载后初始化主题
+onMounted(() => {
+  appStore.initTheme()
+})
 </script>
+
+<style lang="scss" scoped>
+
+</style>
