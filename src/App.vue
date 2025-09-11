@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { Notification, Message } from '@arco-design/web-vue'
+import { Message, Notification } from './utils'
 
 const handleNotification = () => {
   Notification.info({
