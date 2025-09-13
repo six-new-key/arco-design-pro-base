@@ -1,6 +1,6 @@
 <template>
-  <a-menu :default-selected-keys="[currentRoute]" :default-open-keys="defaultOpenKeys" mode="vertical" :theme="appStore.sidebarTheme"
-    :collapsed="appStore.sidebarCollapsed">
+  <a-menu :default-selected-keys="[currentRoute]" :default-open-keys="defaultOpenKeys" mode="vertical"
+    :theme="appStore.sidebarTheme" :collapsed="appStore.sidebarCollapsed" :style="{ height: '100%' }">
     <template v-for="route in menuRoutes" :key="route.name">
       <!-- 一级菜单 -->
       <a-menu-item v-if="!route.children || route.children.length === 0" :key="route.name"
@@ -145,5 +145,3 @@ const handleMenuClick = (path) => {
   router.push(path)
 }
 </script>
-
-<style scoped></style>
